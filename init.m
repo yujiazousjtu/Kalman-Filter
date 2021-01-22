@@ -38,6 +38,7 @@ for k=1:1000
     %result
     pos=[x(1,1);x(2,1)];pos_x(k)=x(1,1);pos_y(k)=x(2,1);
     vel=[x(3,1);x(4,1)];vel_x(k)=x(3,1);vel_y(k)=x(4,1);
+    %disp(vx(k));disp(vel_x(k));
     diff_pos_x(k)=(zx(k)-pos_x(k))/zx(k);
     diff_pos_y(k)=(zy(k)-pos_y(k))/zy(k);
     diff_vel_x(k)=(vx(k)-vel_x(k))/vx(k);
@@ -67,10 +68,18 @@ mean2=mean(diff_vel_x);
 disp(mean1);
 disp(mean2);
 
-max1=max(diff_pos_x);
-max2=max(diff_vel_x);
-disp(max1);
-disp(max2);
+if mean1>=0
+    elem1=max(diff_pos_x);
+else
+    elem1=min(diff_pos_x);
+end
+if mean2>=0
+    elem2=max(diff_vel_x);
+else
+    elem2=min(diff_vel_x);
+end
+disp(elem1);
+disp(elem2);
 
 figure();
 plot(pos_y,'r');
@@ -95,7 +104,15 @@ mean4=mean(diff_vel_y);
 disp(mean3);
 disp(mean4);
 
-max3=max(diff_pos_y);
-max4=max(diff_vel_y);
-disp(max3);
-disp(max4);
+if mean3>=0
+    elem3=max(diff_pos_y);
+else
+    elem3=min(diff_pos_y);
+end
+if mean4>=0
+    elem4=max(diff_vel_y);
+else
+    elem4=min(diff_vel_y);
+end
+disp(elem3);
+disp(elem4);
