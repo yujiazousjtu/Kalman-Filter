@@ -33,7 +33,7 @@ for k=1:1000
     %disp(x(3,1));disp(x_(3,1));
     %update
     zx(k)=0.5*ax*k^2;zy(k)=v_init*k+0.5*ay*k^2;
-    vx(k)=ax*k;vy(k)=ay*k;
+    vx(k)=ax*k;vy(k)=v_init+ay*k;
     z=[zx(k);zy(k)];
     K=P_*H'*(inv(H*P_*H'+R));
     x=x_+K*(z-H*x_);
