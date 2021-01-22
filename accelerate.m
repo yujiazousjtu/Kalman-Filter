@@ -97,9 +97,9 @@ plot(vy,'b')
 legend('y方向滤波速度','y方向理论速度')
 
 figure();
-plot(diff_pos,'r');
+plot(diff_pos_y,'r');
 hold on
-plot(diff_vel,'b')
+plot(diff_vel_y,'b')
 legend('y方向位移误差','y方向速度误差')
 
 mean3=mean(diff_pos_y);
